@@ -59,12 +59,12 @@ func main() {
 		}
 
 		if len(data) > 0 && data[0] == 0x47 {
-			stopPlayer = true
 			log.Printf("[INFO] %s EPG %d kbytes MPEG-TS\n", upd, len(data)/1024)
 			time.Sleep(250 * time.Microsecond)
 			r := bytes.NewReader(data)
 			go epgPlay(addrArg, r)
 			sleepUntilNext5Min()
+			stopPlayer = true
 		} else {
 			text := string(data)
 			if len(data) > 100 {
