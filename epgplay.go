@@ -27,11 +27,11 @@ func epgPlay(addrArg string, f io.ReadSeeker) {
 
 	dest := &net.UDPAddr{IP: ip, Port: port}
 
-	stopPlayer = false
 
 	for {
 
 		if stopPlayer {
+			stopPlayer = false
 			return
 		}
 
